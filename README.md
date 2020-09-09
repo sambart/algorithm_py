@@ -16,3 +16,8 @@ print(a)
 print(b)
 print(type(c))
 ```
+
+```python
+p = sys.stdin.read()
+sys.stdout.write(p)
+```
