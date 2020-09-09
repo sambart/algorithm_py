@@ -17,5 +17,5 @@ for var in arr:
         result *= nVal
  
     prevVar = var
+
 print(result)
-    
