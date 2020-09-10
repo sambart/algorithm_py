@@ -1,21 +1,20 @@
 import sys
 
-str_in = sys.stdin.readline()
-arr = list(str_in.strip())
-nVal = 0
+aChickenValue, bChickenValue, cChickenValue, aChickenCnt, bChickenCnt = input().split()
 result = 0
-prevVar = ''
-for var in arr:
-    nVal = 26
-    if var == 'd':
-        nVal = 10
-    if result == 0:
-        result = nVal        
-    else:
-        if prevVar == var:
-            nVal -= 1        
-        result *= nVal
- 
-    prevVar = var
+aChickenValue = int(aChickenValue)
+bChickenValue = int(bChickenValue)
+cChickenValue = int(cChickenValue)
+aChickenCnt = int(aChickenCnt)
+bChickenCnt = int(bChickenCnt)
 
-print(result)
+
+aRst = (aChickenValue * aChickenCnt) + (bChickenValue * bChickenCnt)
+bRst = cChickenValue * (min(aChickenCnt, bChickenCnt) * 2)
+if aChickenCnt > bChickenCnt:
+    bRst += (aChickenCnt - bChickenCnt) * aChickenValue
+else:
+    bRst += (bChickenCnt - aChickenCnt) * bChickenValue
+cRst = max(aChickenCnt, bChickenCnt) * 2 * cChickenValue
+
+print(min(aRst, bRst, cRst))
