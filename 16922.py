@@ -1,21 +1,15 @@
 import sys
+numLIst = [1, 5, 10, 20]
 
 str_in = sys.stdin.readline()
-arr = list(str_in.strip())
-nVal = 0
-result = 0
-prevVar = ''
-for var in arr:
-    nVal = 26
-    if var == 'd':
-        nVal = 10
-    if result == 0:
-        result = nVal        
-    else:
-        if prevVar == var:
-            nVal -= 1        
-        result *= nVal
- 
-    prevVar = var
+solve(0, 0)
+print(numLIst)
 
-print(result)
+
+def solve(value, deepCnt):
+    if int(str_in) == deepCnt - 1:
+        print(value)
+        return
+    for var in numLIst:
+        solve(value + var, deepCnt + 1)
+    return
